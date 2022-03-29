@@ -1,0 +1,34 @@
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 50;
+}
+.box{
+    position: fixed;
+    top:10vh;
+    left:10vw;
+    width:80vw;
+    height: 60vh;
+    padding: 16px;
+    z-index: 100;
+    border-radius: 10px;
+}
+.title
+{
+    float: left;
+}
+.closeButton
+{
+    font-size: 30px;
+    float: right;
+    color: rgb(156, 161, 165);
+    cursor: pointer;
+}
+.closeButton:hover
+{
+    color: black;
+}

@@ -1,0 +1,48 @@
+<div class="vendor-dashboard">
+    <app-add-vendor (added)="addedVendor($event)" *ngIf="addNewVendor"></app-add-vendor>
+    <div class="cards-section">
+        <div id="title">
+            <div class="display-4">Vendors</div>
+            <div id="result">{{totalResults}} Result found</div>
+            <button (click)="addVendor()" class="ml-5 btn btn-outline-primary" *ngIf="user.role=='admin'">Add Vendor</button>
+            <div id="pager">
+                <ul class="pagination">
+                    <li class="page-item"><button class="btn btn-primary" (click)="previousPage()" [disabled]="ispageStarted()" >Previous</button></li>
+                    <li class="page-item"><a class="page-link" >{{pageNo+1}}</a></li>
+                    <li class="page-item"><button class="btn btn-primary" (click)="nextPage()" [disabled]="ispageEnded()">Next</button></li>
+                  </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="cards-container" *ngIf="vendors!=null&&vendors.length>0; else noVendors">
+            <div class="card" *ngFor="let vendor of vendors">
+                <div class="card-header">
+                    <div class="card-title">
+                        {{vendor.name}}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                       Rating: {{vendor.rating}}
+                    </div>
+                    <div class="card-text">
+                        Address: {{vendor.address}}
+                    </div>
+                    <div class="card-text">
+                        Contact: {{vendor.contactNumber}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-outline-info m-2" (click)="onUpdate(vendor.id)" *ngIf="user.role=='admin'">Edit</a>
+                    <a class="btn btn-outline-danger m-2" (click)="onDelete(vendor.id)" *ngIf="user.role=='admin'">Delete</a>
+                </div>
+            </div>
+        </div>
+        <ng-template #noVendors>
+            <div class="alert alert-info">
+                No Vendors!!
+            </div>
+          </ng-template>
+    </div>
+</div>
+<app-edit-vendor [vendorId]="editVendorId" (editedVendor)="Updated($event)" *ngIf="showEdit"></app-edit-vendor>

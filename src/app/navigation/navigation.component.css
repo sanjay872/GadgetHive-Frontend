@@ -1,0 +1,10 @@
+#logout{
+    color: white;
+    cursor: pointer;
+}
+#profile{
+    margin-right: 50px;
+    color: #fff;
+    font-size: large;
+    font-weight: bolder;
+}

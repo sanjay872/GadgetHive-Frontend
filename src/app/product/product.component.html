@@ -1,0 +1,69 @@
+<div class="product-dashboard">
+    <div class="container search-container">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" [pattern]="searchPattern" ngModel placeholder="Search......" #searchText="ngModel">
+          <div class="input-group-append">
+            <select name="searchType" [(ngModel)]="searchType" class="form-control" required >
+                <option value="product" >Product</option>
+                <option value="vendor">Vendor</option>        
+            </select>
+          </div>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" [disabled]="searchText.errors?.pattern" (click)="search(searchText.value)">Search</button>
+          </div>
+        </div>
+        <div *ngIf="searchText.errors?.pattern&&searchText.errors?.touched" class="text-danger font-weight-bold">*Only alphabet and number are allowed</div>
+    </div>
+    <app-add-product (added)="addedProduct($event)" *ngIf="addNewProduct"></app-add-product>
+    <div class="cards-section">
+        <div id="title">
+            <div class="display-4">Products</div>
+            <div id="result">{{totalResults}} Result found</div>
+            <button (click)="addProduct()" class="ml-5 btn btn-outline-primary" *ngIf="user.role=='admin'">Add Product</button>
+            <div id="pager">
+                <ul class="pagination">
+                    <li class="page-item"><button class="btn btn-primary" (click)="previousPage()" [disabled]="ispageStarted()" >Previous</button></li>
+                    <li class="page-item"><a class="page-link" >{{pageNo+1}}</a></li>
+                    <li class="page-item"><button class="btn btn-primary" (click)="nextPage()" [disabled]="ispageEnded()">Next</button></li>
+                  </ul>
+               </div>
+        </div>
+        <hr>
+        <div class="cards-container" *ngIf="products!=null&&products.length>0; else noProducts">
+            <div class="card" *ngFor="let product of products">
+                <div class="card-header">
+                    <div class="card-title">
+                        {{product.modelName}}
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-text">
+                       OS:{{product.os}}
+                    </div>
+                    <div class="card-text">
+                        RAM: {{product.ram}} GB
+                    </div>
+                    <div class="card-text">
+                        Hard Disk Size: {{product.hardDiskSize}} GB
+                    </div>
+                    <div class="card-text">
+                        Stock Available: {{product.stockAvailable}}
+                    </div>
+                    <div class="card-text">
+                        Vendor: {{product.vendorName}}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-outline-info m-2" (click)="onUpdate(product.id)" *ngIf="user.role=='admin'">Edit</a>
+                    <a class="btn btn-outline-danger m-2" (click)="onDelete(product.id)" *ngIf="user.role=='admin'">Delete</a>
+                </div>
+            </div>
+        </div>
+        <ng-template #noProducts>
+            <div class="alert alert-info">
+                No Products!!
+            </div>
+          </ng-template>
+    </div>
+</div>
+<app-edit-product [productId]="editProductId" (editedProduct)="Updated($event)" *ngIf="showEdit"></app-edit-product>

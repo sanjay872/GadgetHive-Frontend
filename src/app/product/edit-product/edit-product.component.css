@@ -1,0 +1,47 @@
+.backdrop{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width:100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+}
+input,select{
+    width: 30vw;
+}
+.box{
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    top:15vh;
+    left:10vw;
+    width:80vw;
+    padding: 16px;
+    z-index: 150;
+    border-radius: 10px;
+}
+.input_field{
+    margin: 10px;
+}
+#card_content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.title
+{
+    float: left;
+}
+.closeButton
+{
+    font-size: 30px;
+    float: right;
+    color: rgb(156, 161, 165);
+    cursor: pointer;
+}
+.closeButton:hover
+{
+    color: black;
+}

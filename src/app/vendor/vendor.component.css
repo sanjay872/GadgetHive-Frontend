@@ -1,0 +1,45 @@
+.cards-container
+{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.cards-section
+{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding: 2rem;
+}
+#pager{
+    margin-top: 15px;
+    margin-left: 10px;
+}
+.card
+{
+    width: 15rem;
+    height: auto;
+    margin: 2rem;
+}
+.vendor-dashboard
+{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    padding: 3rem;
+}
+#title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#pager{
+    margin-left: 20px;
+}
+#result{
+    font-size: 30px;
+    font-weight: bolder;
+}
