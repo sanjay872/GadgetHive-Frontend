@@ -10,9 +10,11 @@ export class ProductService {
   //local server
   //url:string="http://localhost:8081/product";
   
-  //production server
-  url:string="http://ec2-3-84-83-228.compute-1.amazonaws.com:8081/product";
+  //ec2 production server
+  //url:string="http://ec2-3-84-83-228.compute-1.amazonaws.com:8081/product";
   
+  //elastic beanstalker server
+  url:string="http://Productservice-env.eba-vdkppabe.us-east-1.elasticbeanstalk.com/product";
 
   constructor(private http:HttpClient) { }
 

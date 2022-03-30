@@ -12,7 +12,7 @@ export class VendorService {
   //url:string="http://localhost:8082/vendor";
   
   //production server
-  url:string="http://ec2-3-84-83-228.compute-1.amazonaws.com:8082/vendor";
+  url:string="http://Vendorservice-env-2.eba-b6cz2kci.us-east-1.elasticbeanstalk.com/vendor";
   
   constructor(private http:HttpClient) { }
 
