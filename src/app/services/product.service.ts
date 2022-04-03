@@ -14,7 +14,7 @@ export class ProductService {
   //url:string="http://ec2-3-84-83-228.compute-1.amazonaws.com:8081/product";
   
   //elastic beanstalker server
-  url:string="http://Productservice-env.eba-vdkppabe.us-east-1.elasticbeanstalk.com/product";
+  url:string="http://Productservice-env.eba-gbcdnvyt.us-east-1.elasticbeanstalk.com/product";
 
   constructor(private http:HttpClient) { }
 
