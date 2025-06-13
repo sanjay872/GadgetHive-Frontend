@@ -9,10 +9,10 @@ import { VendorMapper } from '../model/VendorMapper.model';
 export class VendorService {
 
   //local server
-  //url:string="http://localhost:8082/vendor";
+  url:string="http://localhost:8082/vendor";
   
   //production server
-  url:string="http://Vendorservice-env.eba-fpauqv8c.us-east-1.elasticbeanstalk.com";
+  //url:string="http://Vendorservice-env.eba-fpauqv8c.us-east-1.elasticbeanstalk.com";
   
   constructor(private http:HttpClient) { }
 
